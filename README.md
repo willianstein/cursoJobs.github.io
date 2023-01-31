@@ -1,0 +1,5 @@
+# OneBitJobs
+
+```
+rails s
+```

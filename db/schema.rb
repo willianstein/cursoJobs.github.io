@@ -12,11 +12,15 @@
 
 ActiveRecord::Schema.define(version: 2022_06_30_141611) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_stat_statements"
+  enable_extension "plpgsql"
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.integer "record_id", null: false
-    t.integer "blob_id", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
@@ -35,14 +39,14 @@ ActiveRecord::Schema.define(version: 2022_06_30_141611) do
   end
 
   create_table "active_storage_variant_records", force: :cascade do |t|
-    t.integer "blob_id", null: false
+    t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
   create_table "applicants", force: :cascade do |t|
     t.string "name"
-    t.integer "vacancy_id", null: false
+    t.bigint "vacancy_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "email"
@@ -70,7 +74,7 @@ ActiveRecord::Schema.define(version: 2022_06_30_141611) do
     t.string "requirements"
     t.string "salary"
     t.boolean "available"
-    t.integer "company_id", null: false
+    t.bigint "company_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["company_id"], name: "index_vacancies_on_company_id"

@@ -17,17 +17,17 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: 192.168.18.107
-  port: 5435
-  username: postgres
-  password: postgres
+  host: ec2-34-194-158-176.compute-1.amazonaws.com
+  port: 5432
+  username: xmdwvkirfivcgn
+  password: e0a3fcb0e054333f1644fef367f150089e0b9f1393f71193d3caeaac267cac1f
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
-  database: onebitjobs_development
+  database: d66gohlb87i253
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -85,6 +85,6 @@ test:
 #
 production:
   <<: *default
-  database: onebitjobs_development
+  database: d66gohlb87i253
   username: blog
   password: <%= ENV['BLOG_DATABASE_PASSWORD'] %>
